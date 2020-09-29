@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@section Styles {
+    <style>
+        .pic {
+            width: 50px;
+            height: 50px;
+        }
+        .box {
+            padding-right: 100px;
+        }
+        tr:nth-child(odd) {background-color: #f2f2f2;}
+    </style>
+}
+
+<h1>Toon People</h1>
+<table>
+    <tr>
+        <td class="box">Id</td>
+        <td class="box">First Name</td>
+        <td class="box">Last Name</td>
+        <td class="box">Occupation</td>
+        <td class="box">Gender</td>
+        <td class="box">Picture</td>
+    </tr> 
+    @foreach (var toon in ViewBag.qry)
+    {
+        <tr>
+            <td class="box">@toon.Id</td>
+            <td class="box">@toon.FirstName</td>
+            <td class="box">@toon.LastName</td>
+            <td class="box">@toon.Occupation</td>
+            <td class="box">@toon.Gender</td>
+            <td class="box"><img class="pic" src='@toon.PictureUrl'></td>
+        </tr>
+    }
+
+</table>
+
